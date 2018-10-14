@@ -789,7 +789,6 @@
     </Compile>
     <Compile Include="ApplicationObjects\UserInterfaces\Generics\DataSet1.cs">
       <DependentUpon>DataSet1.xsd</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="ApplicationObjects\UserInterfaces\Generics\DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>

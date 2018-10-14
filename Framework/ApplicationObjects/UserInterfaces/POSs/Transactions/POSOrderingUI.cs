@@ -845,18 +845,35 @@ namespace JCSoftwares_V.ApplicationObjects.UserInterfaces.POSs.Transactions
         {
             if (e.Button == MouseButtons.Right)
             {
-                if (dgvTransactionList.CurrentRow.Cells["TransactionPaid"].Value.ToString() == "Y")
+                try
                 {
-                    tsmiEditQty.Visible = false;
-                    tsmiRemove.Visible = false;
+                    if (lOperation == "Edit")
+                    { 
+                        if (dgvTransactionList.CurrentRow.Cells["TransactionPaid"].Value.ToString() == "Y")
+                        {
+                            tsmiEditQty.Visible = false;
+                            tsmiRemove.Visible = false;
+                        }
+                        else
+                        {
+                            tsmiEditQty.Visible = true;
+                            tsmiRemove.Visible = true;
+                        }
+                    }
+                    else
+                    {
+                        tsmiEditQty.Visible = true;
+                        tsmiRemove.Visible = true;
+                    }
                 }
-                else
+                catch
                 {
                     tsmiEditQty.Visible = true;
                     tsmiRemove.Visible = true;
                 }
                 System.Drawing.Point pt = dgvDetailStockList.PointToScreen(e.Location);
                 cmsFunctionDettail.Show(pt);
+                
             }
         }
 
